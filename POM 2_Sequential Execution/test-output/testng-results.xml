@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-09T21:07:14 IST" name="Suite" finished-at="2024-12-09T21:07:42 IST" duration-ms="27862">
+    <groups>
+    </groups>
+    <test started-at="2024-12-09T21:07:14 IST" name="Test" finished-at="2024-12-09T21:07:42 IST" duration-ms="27862">
+      <class name="testcases.VerifyLogin">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:testcases.VerifyLogin@55634720]" started-at="2024-12-09T21:07:14 IST" name="preCondition" finished-at="2024-12-09T21:07:22 IST" duration-ms="8101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="runVerifyLogin()[pri:0, instance:testcases.VerifyLogin@55634720]" started-at="2024-12-09T21:07:22 IST" name="runVerifyLogin" finished-at="2024-12-09T21:07:25 IST" duration-ms="2832" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runVerifyLogin -->
+        <test-method is-config="true" signature="postcondition()[pri:0, instance:testcases.VerifyLogin@55634720]" started-at="2024-12-09T21:07:25 IST" name="postcondition" finished-at="2024-12-09T21:07:26 IST" duration-ms="407" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postcondition -->
+      </class> <!-- testcases.VerifyLogin -->
+      <class name="testcases.CreateLead">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:testcases.CreateLead@6c1a5b54]" started-at="2024-12-09T21:07:26 IST" name="preCondition" finished-at="2024-12-09T21:07:33 IST" duration-ms="7389" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="verifyCreateLead()[pri:0, instance:testcases.CreateLead@6c1a5b54]" started-at="2024-12-09T21:07:33 IST" name="verifyCreateLead" finished-at="2024-12-09T21:07:42 IST" duration-ms="8861" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateLead -->
+        <test-method is-config="true" signature="postcondition()[pri:0, instance:testcases.CreateLead@6c1a5b54]" started-at="2024-12-09T21:07:42 IST" name="postcondition" finished-at="2024-12-09T21:07:42 IST" duration-ms="213" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postcondition -->
+      </class> <!-- testcases.CreateLead -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
