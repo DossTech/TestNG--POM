@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-09T16:52:51 IST" name="Default suite" finished-at="2024-12-09T16:53:03 IST" duration-ms="11888">
+    <groups>
+    </groups>
+    <test started-at="2024-12-09T16:52:51 IST" name="Default test" finished-at="2024-12-09T16:53:03 IST" duration-ms="11888">
+      <class name="testcases.VerifyLogin">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:testcases.VerifyLogin@2dc54ad4]" started-at="2024-12-09T16:52:51 IST" name="preCondition" finished-at="2024-12-09T16:53:00 IST" duration-ms="9161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="runVerifyLogin()[pri:0, instance:testcases.VerifyLogin@2dc54ad4]" started-at="2024-12-09T16:53:00 IST" name="runVerifyLogin" finished-at="2024-12-09T16:53:03 IST" duration-ms="2456" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runVerifyLogin -->
+        <test-method is-config="true" signature="postcondition()[pri:0, instance:testcases.VerifyLogin@2dc54ad4]" started-at="2024-12-09T16:53:03 IST" name="postcondition" finished-at="2024-12-09T16:53:03 IST" duration-ms="227" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postcondition -->
+      </class> <!-- testcases.VerifyLogin -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

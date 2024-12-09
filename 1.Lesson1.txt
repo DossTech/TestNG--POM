@@ -1,0 +1,222 @@
+1.POM Introduction:
+===================PatternObjectModel/PageObjectModel
+	-Setup for sequential exe
+	-configuration to support parallel exe
+	-Integrating DataProvider / Apachi POI
+
+	-Setup of multilingual Applications
+	-PageFactory
+
+	-Exception Handling
+
+
+POM:
+----
+	A design pattern used to build the framework
+
+FW: it s real or conceptual structure which helps in product 
+----   development
+
+	-Easy Maintenance
+	-Increase productivity
+	-Maintaining uniformity
+	-Reduce duplicated code
+	-Supports Multilingual Application
+	-Better Reporting
+
+LoginPage
+HomePage
+MyHome Page
+Leads Page
+Create Lead Page
+View Lead Page
+
+
+version:  major.minor.series
+
+Steps to follow POM:
+----------------------
+1.Create initividual Classes for all webpages
+2.Create  pom.xml
+       Selenium-java -
+       TestNg-7.4.0
+	  poi-4.1.2
+       poi-ooxml-4.1.2
+       Cucumber-java -6.8.0
+       Cucumber-testNG-6.8.0
+3.Create a package - pages
+       1.LoginPage
+	  2.HomePage
+	  3.MyHomePage
+	  4.LeadsPage
+	  5.CreateLeadPage
+       6.ViewLeadPage
+4.Create package for baseclass
+	1.BaseClass - public RemoteWebDriver driver
+
+5.Extends all the pages to Baseclass
+
+6.Create methods in resp. pages each action--->use click, enter
+
+  Login: userName, Password, Login
+  Home: CRM/SFA, verifyHomePage,Logout
+  MyhomePage: Leads
+  MyLeads:Createlead, FindLeads, MergeLeads
+  CreateLead:FirstName, LastName, company Name, Create Lead
+  View Lead:FirstName
+
+
+	-create methods in enteruserName,  enterpassword and Login button
+7.Create a package called testcase -VerifyLogin
+
+8.Creating  an object as a part of the function itself---in LoginPage
+9.After every Action - return this, return new Page();
+10.extends the testcases with BaseClass also
+
+11:PG:1.BAseclass  2.LoginPage 3.HomePage 4.verifyLogin(TestCase)
+=================================================================
+1.Baseclass  
+-----------
+package base;
+
+import java.time.Duration;
+
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseClass {
+
+	public static RemoteWebDriver driver;
+
+	@BeforeMethod(alwaysRun=true)
+	public void preCondition() {
+		driver = new EdgeDriver();
+		driver.get("http://leaftaps.com/opentaps/control/main");
+	//	driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+	}
+
+	@AfterMethod
+	public void postcondition() {
+		driver.close();
+	}
+}
+
+2.LoginPage 
+-----------
+package org.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import base.BaseClass;
+
+public class LoginPage extends BaseClass{
+
+	public LoginPage enterUserName() {
+		//userName
+		WebElement txtUserName = driver.findElement(By.id("username"));
+		txtUserName.sendKeys("DemoSalesManager");
+
+
+		return this;
+	}
+
+	public LoginPage enterPassword() {
+		//password
+		WebElement txtPassword = driver.findElement(By.id("password"));
+		txtPassword.sendKeys("crmsfa");
+
+
+		return this;
+	}
+
+	public HomePage clickLogin() {
+		//Login button
+		WebElement btnLogin = driver.findElement(By.className("decorativeSubmit"));
+		btnLogin.click();
+
+		return new HomePage();
+	}
+}
+
+3.HomePage
+-----------
+package org.page;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
+import base.BaseClass;
+
+public class HomePage extends BaseClass{
+
+	public MyHomePage clickCRMSFA() {
+		driver.findElement(By.id("label")).click();
+		return new MyHomePage();
+	}
+	public HomePage verifyHomePage() {
+		boolean displayed = driver.findElement(By.id("label")).isDisplayed();
+		System.out.println(displayed);
+		Assert.assertTrue(displayed);
+		return this;
+	}
+}
+
+4.verifyLogin(TestCase)
+------------------------
+package testcases;
+
+import org.page.LoginPage;
+import org.testng.annotations.Test;
+
+import base.BaseClass;
+
+public class VerifyLogin extends BaseClass{
+
+	@Test
+	public void runVerifyLogin() {
+		
+	 new LoginPage()
+		.enterUserName().
+		enterPassword().
+		clickLogin().
+	 
+	 verifyHomePage().
+	 clickCRMSFA();
+	 
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
